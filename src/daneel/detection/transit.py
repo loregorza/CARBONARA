@@ -15,11 +15,11 @@ params.w = 90                         # longitude of periastron (in degrees)
 params.limb_dark = "quadratic"        # limb darkening model
 params.u = [0.1, 0.3]                 # limb darkening coefficients
 
-m = batman.TransitModel(params, t)    #initializes model
+m = batman.TransitModel(params, time)    #initializes model
 flux = m.light_curve(params)           # calculates light curve
 
 fig=plt.figure(figsize=(10, 6))
-plt.plot(t, flux, color="blue", label="Model Light Curve")
+plt.plot(time, flux, color="blue", label="Model Light Curve")
 plt.xlabel("Time from transit center (days)")
 plt.ylabel("Relative flux")
 plt.title("Exoplanet Transit Light Curve")
