@@ -19,11 +19,10 @@ m = batman.TransitModel(params, time)    #initializes model
 flux = m.light_curve(params)           # calculates light curve
 
 fig=plt.figure(figsize=(10, 6))
-plt.plot(time, flux, color="blue", label="Model Light Curve")
+plt.plot(time, flux, color="teal", label="Model Light Curve")
 plt.xlabel("Time from transit center (days)")
 plt.ylabel("Relative flux")
-plt.title("Exoplanet Transit Light Curve")
+plt.title("Kepler-22 b Transit Light Curve")
 plt.legend()
-plt.grid(True)
 plt.show()
 fig.savefig('/root/2_veneti_e_mezzo/src/daneel/detection/Kepler-22_b_assignment1_taskF.png', dpi=fig.dpi)
