@@ -1,3 +1,3 @@
-# comp_astro_24
+CARBONARA
 
-Base repository for the computational astrophysics course
+Characterization of Atmospheres through Retrieval of Biosignatures with Observational Network and Radiative Analysis
