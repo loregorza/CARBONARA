@@ -13,7 +13,7 @@ params.inc = 89.76                    # orbital inclination (in degrees)
 params.ecc = 0                        # eccentricity
 params.w = 90                         # longitude of periastron (in degrees)
 params.limb_dark = "quadratic"        # limb darkening model
-params.u = [0.1, 0.3]                 # limb darkening coefficients
+params.u = [0.630, 0.076]                 # limb darkening coefficients
 
 m = batman.TransitModel(params, time)    #initializes model
 flux = m.light_curve(params)           # calculates light curve
