@@ -1,19 +1,14 @@
 import numpy as np
-def mean_columns(file_path, col1, col2):
-    # Load the data from the text file, assuming whitespace-separated values
-    data = np.loadtxt(file_path)
+
+
+def mean_columns(path):
     
-    # Check if the file has enough columns
-    if data.shape[1] < max(col1, col2):
-        print(f"File does not have enough columns. It needs at least {max(col1, col2)} columns.")
-        return
+    data = np.loadtxt(path, skiprows=2, usecols=[8,10])
+    mean_c1 = np.mean(data[:, 0])
+    mean_c2 = np.mean(data[:, 1])
 
-    # Calculate the mean of the specified columns
-    mean_col1 = np.mean(data[:, col1 - 1])  # Subtract 1 because indexing starts from 0
-    mean_col2 = np.mean(data[:, col2 - 1])
-
-    print(f"Mean of column {col1}: {mean_col1}")
-    print(f"Mean of column {col2}: {mean_col2}")
+    print(f"c1: {mean_c1}")
+    print(f"c2: {mean_c2}")
 
 # Replace 'your_file.txt' with the path to your text file
-mean_columns('ExoCTK_results.txt', 9, 11)
+mean_columns('ExoCTK_results.txt')
