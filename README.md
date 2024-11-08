@@ -1,3 +1,3 @@
-CARBONARA
+**CARBONARA**
 
-Characterization of Atmospheres through Retrieval of Biosignatures with Observational Network and Radiative Analysis
+**C**haracterization of **A**tmospheres through **R**etrieval of **B**iosignatures with **O**bservational **N**etwork and **R**adiative **A**nalysis
