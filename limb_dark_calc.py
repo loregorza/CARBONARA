@@ -1,6 +1,5 @@
 import numpy as np
 
-
 def mean_columns(path):
     
     data = np.loadtxt(path, skiprows=2, usecols=[8,10])
@@ -10,5 +9,4 @@ def mean_columns(path):
     print(f"c1: {mean_c1}")
     print(f"c2: {mean_c2}")
 
-# Replace 'your_file.txt' with the path to your text file
 mean_columns('ExoCTK_results.txt')
