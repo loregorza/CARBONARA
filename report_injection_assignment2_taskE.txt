@@ -1,0 +1,58 @@
+linear kernel metrics:
+
+Train Set Error 0.4187143699626499
+Dev Set Error 0.4614035087719298
+------------
+Precision - Train Set 0.5889078083191438
+Precision - Dev Set 0.5557894736842105
+------------
+Recall - Train Set 0.846207619713387
+Recall - Dev Set 0.8354430379746836
+------------
+Confusion Matrix - Train Set
+[[ 536 1690]
+ [ 440 2421]]
+Confusion Matrix - Dev Set
+[[ 43 211]
+ [ 52 264]]
+
+
+
+Gaussian (rbf) kernel metrics:
+
+Train Set Error 0.4330646746609004
+Dev Set Error 0.44561403508771935
+------------
+Precision - Train Set 0.5653296266878475
+Precision - Dev Set 0.5543859649122806
+------------
+Recall - Train Set 0.9951066060817896
+Recall - Dev Set 1.0
+------------
+Confusion Matrix - Train Set
+[[  37 2189]
+ [  14 2847]]
+Confusion Matrix - Dev Set
+[[  0 254]
+ [  0 316]]
+
+
+
+poly (degree=4) kernel metrics:
+
+Train Set Error 0.4287399252997838
+Dev Set Error 0.45964912280701753
+------------
+Precision - Train Set 0.5687980574666127
+Precision - Dev Set 0.5597345132743363
+------------
+Recall - Train Set 0.9825235931492485
+Recall - Dev Set 0.8006329113924051
+------------
+Confusion Matrix - Train Set
+[[  95 2131]
+ [  50 2811]]
+Confusion Matrix - Dev Set
+[[ 55 199]
+ [ 63 253]]
+
