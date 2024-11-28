@@ -1,0 +1,39 @@
+# of neurons: 1
+
+Precision Train: 0.5738306328339957
+Precision Dev: 0.5490654205607477
+
+Confusion Matrix Train:
+[[ 832 1394]
+ [ 984 1877]]
+Confusion Matrix Dev:
+[[ 61 193]
+ [ 81 235]]
+
+---------------------------------------
+
+# of neurons: 10
+
+Precision Train: 0.6049382716049383
+Precision Dev: 0.5541044776119403
+
+Confusion Matrix Train:
+[[1266  960]
+ [1391 1470]]
+Confusion Matrix Dev:
+[[ 15 239]
+ [ 19 297]]
+
+---------------------------------------
+
+# of neurons: 100
+
+Precision Train: 0.6194649446494465
+Precision Dev: 0.5609137055837563
+
+Confusion Matrix Train:
+[[1401  825]
+ [1518 1343]]
+Confusion Matrix Dev:
+[[ 81 173]
+ [ 95 221]]
