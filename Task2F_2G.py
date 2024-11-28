@@ -15,15 +15,15 @@ import os
 '''Change the local path before running the code'''
 
 '''Task2F'''
-root_dir = r"C:\Users\loren\Documents\ComputationalAstrophysics\data_no_injection"
+#root_dir =r"C:\Users\rober\Desktop\Computational Astrophysics\data_no_injected" #r"C:\Users\loren\Documents\ComputationalAstrophysics\data_no_injection"
 
 '''Task2G'''
-#root_dir = r"C:\Users\loren\Documents\ComputationalAstrophysics\data_injected"
+root_dir = r"C:\Users\loren\Documents\ComputationalAstrophysics\data_injected"
 
 np.random.seed(1)
 
 LOAD_MODEL = True  # Continue training previous weights or start fresh
-RENDER_PLOT = True  # Render loss and accuracy plots
+#RENDER_PLOT = True  # Render loss and accuracy plots
 
 
 class LightFluxProcessor:
@@ -78,15 +78,21 @@ class LightFluxProcessor:
         return pd.DataFrame(df_train_x), pd.DataFrame(df_dev_x)
 
 
-def build_network(shape):
+def build_network(shape,n):
     model = tf.keras.models.Sequential(
         [
             tf.keras.layers.Input(shape),
             tf.keras.layers.Flatten(),
-            tf.keras.layers.Dense(1, activation="relu"),
-            tf.keras.layers.Dense(1, activation="sigmoid"),
+            #ciclo for forse, aumentanto il numero di neuroni aumenta la probabilità di overfitting
+            tf.keras.layers.Dense(n, activation="relu"),
+            tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(1, activation="sigmoid"),#questo è l output quindi rimane, il dropout deve essere prima del sigmoid 
         ]
     )
+
+    #Aggiungere qui hidden layers con relu e dropout layer (tf.keras.layers.Dense(n_neuron, activation="relu"))
+    # 
+    
     loss_fn = tf.keras.losses.BinaryCrossentropy(from_logits=True)
     model.compile(optimizer="adam", loss=loss_fn, metrics=["accuracy"])
     return model
@@ -134,50 +140,55 @@ if __name__ == "__main__":
     print(f"X_dev.shape: {X_dev.shape}")
     print(f"Y_dev.shape: {Y_dev.shape}")
 
+
+    g=[1,10,100]
+
+    
     # Build model
-    model = build_network(X_train.shape[1:])
-
-    # Load weights if available
-    load_path = ""
-    if LOAD_MODEL and Path(load_path).is_file():
-        model.load_weights(load_path)
-        print("Loaded saved weights")
-
-    # Apply SMOTE for balancing
-    sm = SMOTE()
-    X_train_sm, Y_train_sm = sm.fit_resample(X_train, Y_train)
-
-    # Train the model
-    print("Training...")
-    history = model.fit(X_train_sm, Y_train_sm, epochs=50, batch_size=32)
-
-    # Evaluate the model
-    train_outputs = np.rint(model.predict(X_train, batch_size=32))
-    dev_outputs = np.rint(model.predict(X_dev, batch_size=32))
-    accuracy_train = accuracy_score(Y_train, train_outputs)
-    accuracy_dev = accuracy_score(Y_dev, dev_outputs)
-    precision_train = precision_score(Y_train, train_outputs)
-    precision_dev = precision_score(Y_dev, dev_outputs)
-    recall_train = recall_score(Y_train, train_outputs)
-    recall_dev = recall_score(Y_dev, dev_outputs)
-    confusion_matrix_train = confusion_matrix(Y_train, train_outputs)
-    confusion_matrix_dev = confusion_matrix(Y_dev, dev_outputs)
-
-    print(f"Train set error: {1.0 - accuracy_train}")
-    print(f"Dev set error: {1.0 - accuracy_dev}")
-    print("------------")
-    print(f"Precision Train: {precision_train}")
-    print(f"Precision Dev: {precision_dev}")
-    print("------------")
-    print(f"Recall Train: {recall_train}")
-    print(f"Recall Dev: {recall_dev}")
-    print("------------")
-    print("Confusion Matrix Train:")
-    print(confusion_matrix_train)
-    print("Confusion Matrix Dev:")
-    print(confusion_matrix_dev)
-
-    if RENDER_PLOT:
+    for i in range(len(g)):
+        model = build_network(X_train.shape[1:],g[i])
+        
+    
+        # Load weights if available
+        load_path = ""
+        if LOAD_MODEL and Path(load_path).is_file():
+            model.load_weights(load_path)
+            print("Loaded saved weights")
+    
+        # Apply SMOTE for balancing
+        sm = SMOTE()
+        X_train_sm, Y_train_sm = sm.fit_resample(X_train, Y_train)
+    
+        # Train the model
+        print("Training...")
+        history = model.fit(X_train_sm, Y_train_sm, epochs=50, batch_size=32)
+    
+        # Evaluate the model
+        train_outputs = np.rint(model.predict(X_train, batch_size=32))
+        dev_outputs = np.rint(model.predict(X_dev, batch_size=32))
+        accuracy_train = accuracy_score(Y_train, train_outputs)
+        accuracy_dev = accuracy_score(Y_dev, dev_outputs)
+        precision_train = precision_score(Y_train, train_outputs)
+        precision_dev = precision_score(Y_dev, dev_outputs)
+        recall_train = recall_score(Y_train, train_outputs)
+        recall_dev = recall_score(Y_dev, dev_outputs)
+        confusion_matrix_train = confusion_matrix(Y_train, train_outputs)
+        confusion_matrix_dev = confusion_matrix(Y_dev, dev_outputs)
+        print('numero di neuroni', g[i])
+        print(f"Train set error: {1.0 - accuracy_train}")
+        print(f"Dev set error: {1.0 - accuracy_dev}")
+        print("------------")
+        print(f"Precision Train: {precision_train}")
+        print(f"Precision Dev: {precision_dev}")
+        print("------------")
+        print(f"Recall Train: {recall_train}")
+        print(f"Recall Dev: {recall_dev}")
+        print("------------")
+        print("Confusion Matrix Train:")
+        print(confusion_matrix_train)
+        print("Confusion Matrix Dev:")
+        print(confusion_matrix_dev)
+    
         # Plot accuracy
         plt.plot(history.history["accuracy"])
         plt.title("Model Accuracy")
@@ -185,7 +196,6 @@ if __name__ == "__main__":
         plt.xlabel("Epoch")
         plt.legend(["Train"], loc="right")
         plt.show()
-
         # Plot loss
         plt.plot(history.history["loss"])
         plt.title("Model Loss")
