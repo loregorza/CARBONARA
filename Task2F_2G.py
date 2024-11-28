@@ -15,7 +15,7 @@ import os
 '''Change the local path before running the code'''
 
 '''Task2F'''
-#root_dir =r"C:\Users\rober\Desktop\Computational Astrophysics\data_no_injected" #r"C:\Users\loren\Documents\ComputationalAstrophysics\data_no_injection"
+#root_dir = r"C:\Users\loren\Documents\ComputationalAstrophysics\data_no_injection"
 
 '''Task2G'''
 root_dir = r"C:\Users\loren\Documents\ComputationalAstrophysics\data_injected"
