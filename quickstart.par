@@ -1,0 +1,60 @@
+[Global]
+xsec_path = /path/to/xsec
+cia_path = /path/to/cia
+
+
+[Chemistry]
+chemistry_type = taurex
+fill_gases = H2,He
+ratio = 0.25
+
+    [[H2O]]
+    gas_type = constant
+    mix_ratio=1.1185e-4
+
+
+[Temperature]
+profile_type = isothermal
+T = 1300
+
+[Pressure]
+profile_type = Simple
+atm_min_pressure = 1e-0
+atm_max_pressure = 1e6
+nlayers = 100
+
+[Planet]
+planet_type = Simple
+planet_mass = 1.0
+planet_radius = 0.999430455828
+
+[Star]
+star_type = blackbody
+temperature = 5800
+
+[Model]
+model_type = transmission
+
+    [[Absorption]]
+
+    [[CIA]]
+    cia_pairs = H2-H2, H2-He,
+
+    [[Rayleigh]]
+
+[Optimizer]
+optimizer = nestle
+num_live_points=100
+method = single
+
+[Fitting]
+planet_radius:fit = True
+planet_radius:bounds = 0.3, 2
+
+T:fit = True
+T:bounds = 300, 2000
+
+H2O:fit = True
+H2O:bounds = 1e-12, 1e-1
+
+
