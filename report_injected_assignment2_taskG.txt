@@ -1,39 +1,25 @@
-# of neurons: 1
+First network, one layer with 1 neuron and one layer with 2 neurons:
 
-Precision Train: 0.5738306328339957
-Precision Dev: 0.5490654205607477
-
-Confusion Matrix Train:
-[[ 832 1394]
- [ 984 1877]]
-Confusion Matrix Dev:
-[[ 61 193]
- [ 81 235]]
-
----------------------------------------
-
-# of neurons: 10
-
-Precision Train: 0.6049382716049383
-Precision Dev: 0.5541044776119403
+Precision Train: 0.732484076433121
+Precision Dev: 0.875
 
 Confusion Matrix Train:
-[[1266  960]
- [1391 1470]]
+[[2184   42]
+ [2746  115]]
 Confusion Matrix Dev:
-[[ 15 239]
- [ 19 297]]
+[[253   1]
+ [309   7]]
 
----------------------------------------
 
-# of neurons: 100
+Second network, one layer with 50 neurons and one layer with 100 neurons:
 
-Precision Train: 0.6194649446494465
-Precision Dev: 0.5609137055837563
+
+Precision Train: 0.7198748043818466
+Precision Dev: 0.6
 
 Confusion Matrix Train:
-[[1401  825]
- [1518 1343]]
+[[2047  179]
+ [2401  460]]
 Confusion Matrix Dev:
-[[ 81 173]
- [ 95 221]]
+[[248   6]
+ [307   9]]
