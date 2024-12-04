@@ -15,9 +15,9 @@ import os
 '''Change the local path before running the code'''
 
 '''Task2F'''
-#root_dir =r"C:\Users\rober\Desktop\Computational Astrophysics\data_no_injected" 
+root_dir =r"C:\Users\rober\Desktop\Computational Astrophysics\data_no_injected"
 '''Task2G'''
-#root_dir = r"C:\Users\rober\Desktop\Computational Astrophysics\data_injected" 
+#root_dir = r"C:\Users\rober\Desktop\Computational Astrophysics\data_injected"
 np.random.seed(1)
 
 LOAD_MODEL = True  # Continue training previous weights or start fresh
@@ -38,7 +38,7 @@ class LightFluxProcessor:
         return np.abs(fft(X, n=len(X)))  # Use len(X) for compatibility with Series
 
     def process(self, df_train_x, df_dev_x):
-    
+        
         if self.fourier:
             print("Applying Fourier...")
             # Apply Fourier transform to each row
@@ -73,16 +73,18 @@ class LightFluxProcessor:
         return pd.DataFrame(df_train_x), pd.DataFrame(df_dev_x)
 
 
-def build_network(shape,n):
+def build_network(shape,n,m):
     model = tf.keras.models.Sequential(
         [
             tf.keras.layers.Input(shape),
             tf.keras.layers.Flatten(),
             tf.keras.layers.Dense(n, activation="relu"),
             tf.keras.layers.Dropout(0.2),
+            tf.keras.layers.Dense(m, activation="relu"),
+            tf.keras.layers.Dropout(0.2),
             tf.keras.layers.Dense(1, activation="sigmoid"), 
         ]
-    ) 
+    )
     
     loss_fn = tf.keras.losses.BinaryCrossentropy(from_logits=True)
     model.compile(optimizer="adam", loss=loss_fn, metrics=["accuracy"])
@@ -132,13 +134,13 @@ if __name__ == "__main__":
     print(f"Y_dev.shape: {Y_dev.shape}")
 
 
-    g=[1,10,100]
-    
+    g=[1,50]
+    l=[2,100]
 
     
     # Build model
     for i in range(len(g)):
-        model = build_network(X_train.shape[1:],g[i])
+        model = build_network(X_train.shape[1:],g[i],l[i])
         
     
         # Load weights if available
@@ -166,7 +168,8 @@ if __name__ == "__main__":
         recall_dev = recall_score(Y_dev, dev_outputs)
         confusion_matrix_train = confusion_matrix(Y_train, train_outputs)
         confusion_matrix_dev = confusion_matrix(Y_dev, dev_outputs)
-        print('numero di neuroni', g[i])
+        print('numero di neuroni del primo layer', g[i])
+        print('numero di neuroni del secondo layer', l[i])
         print(f"Train set error: {1.0 - accuracy_train}")
         print(f"Dev set error: {1.0 - accuracy_dev}")
         print("------------")
