@@ -1,0 +1,55 @@
+[Global]
+xsec_path = /ca24/TauREx/xsecs
+cia_path = /ca24/TauREx/cia/hitran
+
+
+[Chemistry]
+chemistry_type = taurex
+fill_gases = H2,He
+ratio = 0.25
+
+    [[H2O]]
+    gas_type = constant
+    mix_ratio=2e-4
+
+    [[CH4]]
+    gas_type = constant
+    mix_ratio=3e-4
+
+    [[CO2]]
+    gas_type = constant
+    mix_ratio=1e-4
+
+    [[CO]]
+    gas_type = constant
+    mix_ratio=5e-4
+
+
+[Temperature]
+profile_type = isothermal
+T = 871
+
+[Pressure]
+profile_type = Simple
+atm_min_pressure = 1e-0
+atm_max_pressure = 1e6
+nlayers = 100
+
+[Planet]
+planet_type = Simple
+planet_mass = 0.01425
+planet_radius = 0.15202
+
+[Star]
+star_type = blackbody
+temperature = 4552
+
+[Model]
+model_type = transmission
+
+    [[Absorption]]
+
+    [[CIA]]
+    cia_pairs = H2-H2, H2-He,
+
+    [[Rayleigh]]
