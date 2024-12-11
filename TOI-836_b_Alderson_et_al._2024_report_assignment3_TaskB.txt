@@ -1,0 +1,13 @@
+PARAMETERS OF THE SYSTEM
+
+Planet radius = 1.704 R⊕
+Planet mass = 4.5 M⊕
+Planet temperature = 871 K
+
+Star radius = 0.665 R⊙
+Star temperature = 4552 K
+
+Chemistry: 
+According to Alderson et al. 2024, the interior of the exoplanet TOI-836 b is compatible with a pure rock composition. From the model used by the authors the planet could be made of  at most 0.1% solar metallity gas or 9±5% pure water. 
+
+
