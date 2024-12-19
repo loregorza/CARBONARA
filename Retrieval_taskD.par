@@ -1,0 +1,74 @@
+[Global]
+xsec_path = /ca24/TauREx/xsecs
+cia_path = /ca24/TauREx/cia/hitran
+
+
+[Chemistry]
+chemistry_type = taurex
+fill_gases = H2,He,N2
+ratio = 0.25, 0.75
+
+    [[H2O]]
+    gas_type = constant
+    mix_ratio=2e-4
+
+    [[CH4]]
+    gas_type = constant
+    mix_ratio=3e-4
+
+    [[CO2]]
+    gas_type = constant
+    mix_ratio=1e-4
+
+    [[CO]]
+    gas_type = constant
+    mix_ratio=5e-4
+
+
+[Temperature]
+profile_type = isothermal
+T = 871
+
+[Pressure]
+profile_type = Simple
+atm_min_pressure = 1e-0
+atm_max_pressure = 1e6
+nlayers = 100
+
+[Planet]
+planet_type = Simple
+planet_mass = 0.01425
+planet_radius = 0.15202
+
+[Star]
+star_type = blackbody
+temperature = 4552
+radius = 0.665
+
+[Model]
+model_type = transmission
+
+    [[Absorption]]
+
+    [[CIA]]
+    cia_pairs = H2-H2, H2-He,
+
+    [[Rayleigh]]
+
+[Observation]
+observed_spectrum = /ca24/file_giusti/Pecorino.dat
+
+[Optimizer]
+optimizer = nestle
+num_live_points=15
+method = single
+
+[Fitting]
+planet_radius:fit = True
+planet_radius:bounds = 0.01, 1
+
+T:fit = True
+T:bounds = 500, 1000
+
+H2O:fit = True
+H2O:bounds = 1e-6, 1e-2
