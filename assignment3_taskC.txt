@@ -1,0 +1,12 @@
+INPUT PARAMETERS
+
+planet_mass = 0.01425
+planet_radius = 0.15202
+planet_T = 871
+
+
+RETRIEVED PARAMETERS
+
+planet_radius = 0.15 +- 0
+planet_T = 877 (+38.99,-45.17)
+log(H2O) = -3.68 (+0.33,-0.37)
