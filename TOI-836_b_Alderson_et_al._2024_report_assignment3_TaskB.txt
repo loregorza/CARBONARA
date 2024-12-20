@@ -8,6 +8,8 @@ Star radius = 0.665 R⊙
 Star temperature = 4552 K
 
 Chemistry: 
-According to Alderson et al. 2024, the interior of the exoplanet TOI-836 b is compatible with a pure rock composition. From the model used by the authors the planet could be made of  at most 0.1% solar metallity gas or 9±5% pure water. 
-
-
+In the Alderson et al. 2024 paper, the authors considered two possible compositions for the interior 
+of TOI-836 b: the first supposes that it has an Earth-like core with a H2-He envelope of solar metallicity,
+while in the second one the core is supposed to be refractory with a pure H2O envelope and an atmosphere
+on top. According to these scenarios, TOI-836 b could have an envelope mass fraction of at most 0.1% 
+in the case of gas of solar composition, or a water mass fraction of 9±5% in the pure H2O case.
