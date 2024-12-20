@@ -7,6 +7,6 @@ planet_T = 871
 
 RETRIEVED PARAMETERS
 
-planet_radius = 0.04 +- 0
-planet_T = 738.12 (+176.22,-166.82)
-log(H2O) = -4.18 (+1.40,-1.28)
+planet_radius = 0.15 +- 0
+planet_T = 711.64 (+185.53,-138.32)
+log(H2O) = -3.87 (+1.33,-1.15)
