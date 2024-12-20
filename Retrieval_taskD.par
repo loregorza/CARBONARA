@@ -60,7 +60,7 @@ observed_spectrum = /ca24/file_giusti/Pecorino.dat
 
 [Optimizer]
 optimizer = nestle
-num_live_points=15
+num_live_points=50
 method = single
 
 [Fitting]
