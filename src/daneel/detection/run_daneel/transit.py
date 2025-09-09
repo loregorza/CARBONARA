@@ -26,5 +26,6 @@ plt.ylabel("Relative flux")
 plt.title("Kepler-22 b Transit Light Curve")
 plt.legend()
 plt.show()
-#fig.savefig('/root/2_veneti_e_mezzo/src/daneel/detection/Kepler-22_b_assignment1_taskF.png', dpi=fig.dpi) #task1F
-fig.savefig('/root/2_veneti_e_mezzo/src/daneel/detection/run_daneel/assignment2_taskA.png', dpi=fig.dpi)  #task 2A
+
+
+plt.savefig("transit_curve_Eslamifar.png", dpi=300, bbox_inches="tight")
