@@ -37,5 +37,5 @@ plt.xlabel("Time from transit center (Julian days)")
 plt.ylabel("Relative flux")
 plt.show()
 
-#fig.savefig('/root/2_veneti_e_mezzo/src/daneel/detection/assignment2_taskB.png', dpi=fig.dpi)  #task 2B
-fig.savefig('/root/2_veneti_e_mezzo/src/daneel/detection/assignment2_taskC.png', dpi=fig.dpi)  #task 2C
+
+fig.savefig('assignment2_taskC_Eslamifar.png', dpi=fig.dpi)  #task 2C
